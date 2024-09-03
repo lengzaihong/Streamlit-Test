@@ -5,8 +5,10 @@ import google.generativeai as genai
 # Streamlit page configuration
 st.set_page_config(page_title="Education Chatbot", page_icon=":robot:")
 
-# Set your Google Gemini API key securely (replace with your key or use environment variables)
-api_key = os.getenv("GEMINI_API_KEY", "your_gemini_api_key_here")
+
+api_key = st.secrets["GEMINI_API_KEY"]
+
+# Configure the Gemini API using the API key
 genai.configure(api_key=api_key)
 
 # Model configuration
